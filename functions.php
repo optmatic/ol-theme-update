@@ -1,4 +1,5 @@
 <?php
+
 /* Classrooms link */
 function add_classroom_search_link() {
     add_menu_page(

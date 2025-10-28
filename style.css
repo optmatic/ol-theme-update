@@ -8,6 +8,45 @@ License: This WordPress theme is comprised of two parts: (1) The PHP code and in
 Template: dt-the7
 */
 
+/* Global styles for Optimise Learning child theme */
+
+.vc_general.vc_btn3 {
+  background: #ffc857 !important;
+    color: #164870 !important;
+    padding: .65rem 1.25rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: all .2s  
+ease !important;
+}
+
+.vc_general.vc_btn3 a {
+  text-transform: capitalize !important;
+
+}
+/* ----------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  |------------------------------------------------------------
  | Single Post (moved from inline styles in single-post.php)

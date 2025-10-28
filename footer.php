@@ -9,6 +9,7 @@
  * @package The7\Templates
  */
 
+
 defined( 'ABSPATH' ) || exit;
 
 if ( presscore_is_content_visible() ) : ?>
