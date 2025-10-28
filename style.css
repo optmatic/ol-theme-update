@@ -1,0 +1,442 @@
+/*
+Theme Name: the7dtchild
+Author: Dream-Theme
+Author URI: http://dream-theme.com/
+Description: The7 is perfectly scalable, performance and SEO optimized, responsive, retina ready multipurpose WordPress theme. It will fit every site – big or small. From huge corporate portals to studio or personal sites – The7 will become a great foundation for your next project!
+Version: 1.0.0
+License: This WordPress theme is comprised of two parts: (1) The PHP code and integrated HTML are licensed under the GPL license as is WordPress itself.  You will find a copy of the license text in the same directory as this text file. Or you can read it here: http://wordpress.org/about/gpl/ (2) All other parts of the theme including, but not limited to the CSS code, images, and design are licensed according to the license purchased. Read about licensing details here: http://themeforest.net/licenses/regular_extended
+Template: dt-the7
+*/
+
+/*
+ |------------------------------------------------------------
+ | Single Post (moved from inline styles in single-post.php)
+ | Optimise Learning — Blog layout, hero, TOC, related, etc.
+ |------------------------------------------------------------
+*/
+
+/* ===== Layout + spacing ===== */
+
+#cta-title {
+    padding: 0 !important
+}
+
+.ol-cta__sub {
+    margin-bottom: 24px !important;
+    color: #fff !important;
+}
+
+article h3 {
+    padding: 0 !important;
+}
+
+
+
+.single-post .fancy-date{display:none!important}
+.single-post .ol-container{max-width:1280px;margin:0 auto;padding:0 24px}
+.single-post .ol-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px}
+.single-post .flow>*+*{margin-top:clamp(12px,1.6vw,18px)} /* light vertical rhythm */
+
+/* ===== Back link ===== */
+.single-post .ol-back{text-align:left;margin:0 0 20px}
+.single-post .ol-back a{color:#244b6a;text-decoration:none;font-size:.95rem}
+.single-post .ol-back a:hover{text-decoration:underline}
+
+/* ===== HERO (spans grid, image RIGHT on desktop) ===== */
+.single-post .ol-hero-row{grid-column:1 / -1;margin:8px 0 16px}
+.single-post .ol-hero__grid{
+  display:grid;align-items:stretch;
+  grid-template-columns:1fr 1.1fr; /* text | image */
+  height: 100%;
+  border:1px solid #e6eef6;          /* one shared border */
+  /* border-radius removed */
+  /* overflow:hidden; */                    /* clip inner corners */
+  box-shadow:0 6px 24px rgba(16,42,67,.06); /* one shared shadow */
+}
+
+/* Equal-height, connected hero panels */
+.single-post .ol-hero__inner,
+.single-post .ol-hero__media{
+  /* height:100%; */
+  flex: 1;
+  display:flex;
+  flex-direction:column;
+  border:0; /* remove individual border */
+  box-shadow:none;
+}
+.single-post .ol-hero__inner{ 
+  background:#f8fbfe; 
+  /* border-radius removed */
+  padding:0;
+}
+.single-post .ol-hero__media img{ 
+  width:100%; 
+  height:100%; 
+  object-fit:cover; 
+  min-height:100%; 
+  border:0; /* border-radius removed */
+}
+
+/* Responsive safety: keep wrappers clean on mobile too */
+@media (max-width:900px){
+  .single-post .ol-hero__grid{ /* border-radius removed; overflow:hidden; */ height:auto; }
+  .single-post .ol-hero__inner, .single-post .ol-hero__media img{ height:auto; }
+}
+
+.single-post .ol-hero__inner{
+  order:1;
+  background:#f8fbfe;
+  padding:0;
+  box-shadow:none;
+}
+.single-post .ol-hero__media{order:2}
+.single-post .ol-hero__media img{
+  width:100%;object-fit:cover;border:0; /* border-radius removed */
+}
+.single-post .entry-title{
+  font-size:clamp(2rem,2.4vw,2.6rem);line-height:1.15;font-weight:800;color:#1b3951;margin:0 0 2px
+}
+.single-post .entry-meta{
+  color:#6a6f76;font-size:.95rem;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;
+  margin-top:10px;
+}
+.single-post .entry-meta .meta__sep{display:none} /* no dots when flexing */
+
+/* ===== Content ===== */
+.single-post .ol-entry .entry-content{max-width:920px;margin:0 auto;font-size:1.06rem;line-height:1.68;color:#1d1f21}
+.single-post .ol-entry .entry-content p{margin:0 0 .85em}
+.single-post .ol-entry .entry-content > p:first-of-type{font-size:1.09rem;line-height:1.72;color:#2a3846;margin-bottom:1.1em}
+.single-post .ol-entry .entry-content h2{margin:0; font-size:1.6rem;color:#2B6285;font-weight:800;scroll-margin-top:92px}
+.single-post .ol-entry .entry-content h3{margin:0; font-size:1.3rem;font-weight:700;scroll-margin-top:92px}
+.single-post .ol-entry ul{padding-left:0 ;margin:0; padding: 0 !important;}
+.single-post .ol-entry li{margin:.35em 0}
+.single-post .ol-entry blockquote{border-left:4px solid #2B6285;padding:.6em 1em;background:#f7f9fb;border-radius:6px;color:#24303a}
+.single-post .ol-entry table{width:100%;border-collapse:collapse;font-size:.95rem;margin:1.2em 0}
+.single-post .ol-entry th,.single-post .ol-entry td{border:1px solid #e6edf3;padding:.6em .7em;text-align:left}
+
+/* ===== TOC Sidebar ===== */
+.single-post .ol-sidebar{position:relative}
+.single-post .ol-toc{
+  position:sticky;top:68px;padding:14px 14px 12px;background:#f8fbfe;
+  border:1px solid #e7eef6;border-radius:0;font-size:.95rem;box-shadow:0 3px 18px rgba(16,42,67,.05)
+}
+.single-post .ol-toc__title{font-weight:800;margin-bottom:8px;color:#17324a}
+.single-post .ol-toc ul{list-style:none;margin:0;padding:0}
+.single-post .ol-toc li{margin:3px 0}
+.single-post .ol-toc li.lvl-3{margin-left:14px;font-size:.93em}
+.single-post .ol-toc a{color:#244b6a;text-decoration:none;border-left:3px solid transparent;padding-left:8px;display:block;line-height:1.35}
+.single-post .ol-toc a:hover{text-decoration:underline}
+.single-post .ol-toc a.active{border-left-color:#2B6285;font-weight:600}
+
+/* ===== CTA + Author ===== */
+.single-post .ol-cta{
+  background:#2a628f; /* deep blue banner */
+  color:#fff;
+  padding:clamp(32px,6vw,60px) clamp(20px,4vw,40px);
+  margin:56px auto; /* space from article blocks */
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 8px 28px rgba(10,24,39,.15);
+}
+.single-post .ol-cta h2{
+  color:#fff;
+  margin:0 0 14px;
+  font-size:clamp(1.5rem,2.6vw,2rem);
+  line-height:1.2;
+  font-weight:800;
+}
+/* optional supporting copy */
+.single-post .ol-cta p{
+  max-width:960px;
+  margin:0 auto 0px;
+  opacity:.95;
+}
+/* primary button */
+.single-post .ol-cta .btn{
+  display:inline-block;
+  background:#ffc857;
+  color:#113351;
+  padding:12px 22px;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(0,0,0,.18);
+  transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.single-post .ol-cta .btn:hover,
+.single-post .ol-cta .btn:focus{
+  background:#feb820;
+  transform:translateY(-1px);
+  box-shadow:0 6px 22px rgba(0,0,0,.22);
+}
+.single-post .ol-author{max-width:920px;margin:40px auto;display:flex; flex-direction: column; align-items:left ;padding:0;border-radius:12px}
+.single-post .ol-author__avatar img{border-radius:50%;width:72px;height:72px;object-fit:cover}
+.single-post .ol-author__name{font-weight:700;margin-bottom:4px}
+.single-post .ol-author__bio{color:#4a4f55;font-size:.96rem}
+
+/* ===== Related ===== */
+.single-post .ol-related{max-width:1280px;margin:60px auto 16px;padding:0 24px}
+.single-post .ol-related h3{text-align:center;font-size:1.4rem;margin:0 0 20px}
+.single-post .ol-related__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.single-post .ol-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);text-decoration:none;transition:transform .18s ease}
+.single-post .ol-card:hover{transform:translateY(-3px)}
+.single-post .ol-card img{width:100%;height:160px;object-fit:cover;display:block}
+.single-post .ol-card__title{padding:12px 12px 14px;color:#0f1720;font-size:1rem;line-height:1.3}
+
+/* ===== Responsive ===== */
+@media (max-width:1140px){
+  .single-post .ol-grid{grid-template-columns:1fr;gap:36px}
+  .single-post .ol-sidebar{order:-1}
+}
+@media (max-width:900px){
+  .single-post .ol-hero__grid{grid-template-columns:1fr;gap:18px; height:auto;}
+  .single-post .ol-hero__media{order:1}
+  .single-post .ol-hero__inner{order:2}
+  .single-post .ol-hero__media img{height:auto}
+}
+@media (max-width:640px){
+  .single-post .ol-related__grid{grid-template-columns:1fr 1fr}
+  .single-post .ol-cta{padding:26px}
+}
+@media (max-width:640px){
+  .single-post .ol-cta{ padding:28px 18px; margin:40px auto; }
+  .single-post .ol-cta h2{ margin-bottom:10px; }
+}
+
+/* Alignment fix (legacy padding override) */
+.single-post .ol-hero{ padding-left:0 !important; padding-right:0 !important; }
+
+/* First block should sit tight under the hero */
+.single-post .ol-entry .entry-content > :first-child{ margin-top:0 !important; }
+
+.meta__updated {
+font-size: .75rem;
+color: #1b3951 !important
+}
+
+/* ---------- Blog Grid ---------- */
+
+.ol-blog-archive{ max-width:1280px; margin:0 auto; padding:0 24px; }
+.ol-blog-archive .ol-blog-grid{
+  display:grid;
+  gap:22px;
+}
+
+/* Columns driven by data attribute */
+.ol-blog-archive[data-cols="1"] .ol-blog-grid{ grid-template-columns: 1fr; }
+.ol-blog-archive[data-cols="2"] .ol-blog-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.ol-blog-archive[data-cols="3"] .ol-blog-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+.ol-blog-archive[data-cols="4"] .ol-blog-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+
+/* Responsive downshifts */
+@media (max-width: 1100px){
+  .ol-blog-archive[data-cols="4"] .ol-blog-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (max-width: 900px){
+  .ol-blog-archive[data-cols="3"] .ol-blog-grid,
+  .ol-blog-archive[data-cols="4"] .ol-blog-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px){
+  .ol-blog-archive .ol-blog-grid{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.ol-card{
+  background:#fff;
+  border:1px solid #e9eef5;
+  border-radius:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 8px 24px rgba(16,42,67,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.ol-card:hover{
+  transform: translateY(-3px);
+  box-shadow:0 12px 26px rgba(16,42,67,.10);
+}
+
+/* Media */
+.ol-card__media{ display:block; position:relative; }
+.ol-card__media img{ width:100%; height:100%; display:block; object-fit:cover; aspect-ratio: 16/9; }
+.ol-card__placeholder{ background:#f3f6fb; aspect-ratio: 16/9; }
+
+/* Body */
+.ol-card__body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:10px; }
+
+/* Categories as subtle chips */
+.ol-card__cats{ display:flex; flex-wrap:wrap; gap:6px; }
+.ol-card__cats a{
+  font-size:12px; line-height:1;
+  padding:6px 10px; border-radius:999px;
+  color:#1f3e57; background:#eef5fb; text-decoration:none;
+  border:1px solid #d9e7f3;
+}
+
+/* Title */
+.ol-card__title{ font-size:1.05rem; line-height:1.25; margin:0; }
+.ol-card__title a{ color:#0e2334; text-decoration:none; }
+.ol-card__title a:hover{ text-decoration:underline; }
+
+/* Excerpt */
+.ol-card__excerpt{ margin:0; color:#44505b; }
+
+/* Meta */
+.ol-card__meta{ display:flex; align-items:center; gap:8px; color:#6a7680; font-size:.9rem; }
+.ol-card__meta .sep{ opacity:.5; }
+
+/* Pagination */
+.ol-pagination{ margin:28px 0 12px; text-align:center; }
+.ol-pagination ul{ list-style:none; margin:0; padding:0; display:inline-flex; gap:6px; }
+.ol-pagination li a, .ol-pagination li span{
+  display:inline-block; min-width:36px; padding:8px 12px; border:1px solid #e3eaf2; border-radius:8px;
+  color:#17324a; text-decoration:none; background:#fff;
+}
+.ol-pagination li span.current{ background:#2B6285; color:#fff; border-color:#2B6285; }
+.ol-pagination li a:hover{ border-color:#bcd0e1; }
+
+/* --- Blog grid: equal-height, tidy text, no overflow --- */
+
+/* Make each card a flex column and stretch to the grid row height */
+.ol-blog-archive .ol-blog-grid {
+    align-items: stretch; /* ensures children can stretch full height */
+  }
+  
+  .ol-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Media sits on top with a fixed aspect; image always covers */
+  .ol-card__media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;     /* consistent thumbnail height */
+  }
+  .ol-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Card body consumes remaining height */
+  .ol-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 16px 18px;
+    flex: 1 1 auto;           /* grow to fill card */
+    min-height: 0;            /* allow clamping to work in flex child */
+  }
+  
+  /* Optional “kicker”/tag styling */
+  .ol-card__kicker,
+  .ol-card__cats { 
+    font-size: 12px;
+    line-height: 1;
+    color: #6a7680;
+  }
+  
+  /* Title: clamp to 2 lines so heights stay even */
+  .ol-card__title { 
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.25;
+  }
+  .ol-card__title a {
+    color: #0e2334;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    /* <= adjust if you want 1 or 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Excerpt: clamp to 3 lines and let meta pin to the bottom */
+  .ol-card__excerpt {
+    margin: 0;
+    color: #44505b;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;    /* <= adjust to taste */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Meta sits at the bottom of the card body */
+  .ol-card__meta {
+    margin-top: auto;         /* pushes meta to bottom */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6a7680;
+    font-size: .9rem;
+  }
+  .ol-card__meta .sep { opacity: .5; }
+  
+  /* Small viewport adjustments */
+  @media (max-width: 640px){
+    .ol-card__title a { -webkit-line-clamp: 3; } /* a touch more room on mobile */
+    .ol-card__excerpt { -webkit-line-clamp: 4; }
+  }
+
+/* Full-bleed blog grid inside the hero wrapper (no overflow) */
+.ol-hero--blog{
+  position: relative;
+  width: 100%;                 /* respect parent container; no sideways scroll */
+  margin: 0 auto;
+  background: #fff;
+  padding: clamp(28px, 5vw, 56px) 0;   /* top/bottom breathing room */
+  z-index: 0;                    /* let sticky header sit above */
+}
+
+/* Kill The7 desktop side-padding on the hero wrapper specifically for the blog grid */
+@media (min-width: 993px){
+  .ol-hero--blog{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* If the theme header is sticky and overlaps, add a small offset */
+.masthead.sticky-on ~ #main .ol-hero--blog,
+.masthead.header-bottom ~ #main .ol-hero--blog{
+  padding-top: clamp(40px, 6vw, 72px);
+}
+
+/* Neutralise theme wrapper padding inside the hero so the grid aligns */
+.ol-hero--blog .wpb_wrapper,
+.ol-hero--blog .wf-container,
+.ol-hero--blog .wf-container-main,
+.ol-hero--blog .wf-wrap {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Also neutralise common VC row/column gutters inside the hero wrapper */
+.ol-hero--blog .vc_row,
+.ol-hero--blog .vc_row-fluid,
+.ol-hero--blog .wpb_column,
+.ol-hero--blog .vc_column_container,
+.ol-hero--blog .vc_column-inner,
+.ol-hero--blog .vc_column_container > .vc_column-inner,
+.ol-hero--blog .wpb_wrapper{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Inner archive width + side gutters */
+.ol-hero--blog .ol-blog-archive{
+  max-width: 1500px;   /* give the grid more breathing room */
+  margin: 0 auto;
+  padding: 0;          /* no lateral padding inside the hero */
+}
+
+/* The columns are controlled by the existing .ol-blog-archive[data-cols] rules */
+.ol-hero--blog .ol-blog-grid{
+  display: grid;
+  gap: 22px;
+}
