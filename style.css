@@ -20,11 +20,7 @@ Template: dt-the7
     display: inline-block !important;
     transition: all .2s  
 ease !important;
-}
-
-.vc_general.vc_btn3 a {
   text-transform: capitalize !important;
-
 }
 /* ----------------------------------------------- */
 

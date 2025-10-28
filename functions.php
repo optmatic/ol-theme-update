@@ -1,5 +1,43 @@
 <?php
 
+function optimiselearning_titlecase_buttons() {
+    wp_enqueue_script('jquery');
+    $js = <<<JS
+  (function(){
+    function titleCaseButtons(ctx){
+      var els = (ctx || document).querySelectorAll('.vc_general.vc_btn3');
+      var stop = new Set(['a','an','and','as','at','but','by','for','from','in','of','on','or','the','to','with']);
+      els.forEach(function(el){
+        var t = (el.textContent || '').trim();
+        if (!t) return;
+        if (t === t.toUpperCase()) { // only convert shouty strings
+          var words = t.toLowerCase().split(/\\s+/).map(function(w,i,arr){
+            if (i!==0 && i!==arr.length-1 && stop.has(w)) return w;
+            return w.charAt(0).toUpperCase() + w.slice(1);
+          });
+          el.textContent = words.join(' ');
+        }
+      });
+    }
+  
+    function run(){ titleCaseButtons(); }
+  
+    // DOM ready + after load (covers delayed JS)
+    if (document.readyState !== 'loading') run();
+    else document.addEventListener('DOMContentLoaded', run);
+    window.addEventListener('load', run);
+  
+    // WPBakery sometimes re-inits; listen + observe
+    document.addEventListener('vc_js', run);
+    new MutationObserver(function(m){ titleCaseButtons(); })
+      .observe(document.documentElement, {childList:true,subtree:true});
+  })();
+  JS;
+    wp_add_inline_script('jquery', $js);
+  }
+  add_action('wp_enqueue_scripts', 'optimiselearning_titlecase_buttons', 20);
+
+  
 /* Classrooms link */
 function add_classroom_search_link() {
     add_menu_page(
