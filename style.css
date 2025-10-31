@@ -17,8 +17,21 @@ div > p > a {
   font-weight: 600;
 }
 
+/* Faq accordion */
+ .vc_tta-panel {
+  background: #fff !important;
 
+ }
 
+ .vc_tta-color-white.vc_tta-style-flat .vc_tta-panel .vc_tta-panel-heading {
+    background-color: #f8fbfe !important;
+    border-bottom: 1px solid #e6eef6 !important;
+ }
+
+ .vc_tta-color-white.vc_tta-style-flat .vc_tta-panel .vc_tta-panel-heading:hover {
+  background-color: #f8fbfe !important;
+  border-bottom: 2px solid #e6eef6 !important;
+}
 /* Hero in-text link colors */
 
 
