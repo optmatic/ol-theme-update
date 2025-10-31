@@ -35,7 +35,37 @@ function optimiselearning_titlecase_buttons() {
   JS;
     wp_add_inline_script('jquery', $js);
   }
-  add_action('wp_enqueue_scripts', 'optimiselearning_titlecase_buttons', 20);
+
+add_action('wp_enqueue_scripts', 'optimiselearning_titlecase_buttons', 20);
+
+// Inject gradient overlay into all .ol-hero WPBakery rows
+function ol_hero_gradient_overlay_script() {
+    // Ensure jQuery is present
+    wp_enqueue_script('jquery');
+
+    $script = <<<JS
+    (function ($) {
+      function addOverlay() {
+        $('.vc_row.ol-hero, .vc_row.ol-hero--compact, .vc_row.ol-fullbleed').each(function () {
+          if (!$(this).children('.ol-hero__overlay').length) {
+            $(this).prepend('<div class="ol-hero__overlay" aria-hidden="true"></div>');
+          }
+        });
+      }
+
+      // Run at several safe times because WPBakery mutates rows after ready
+      $(addOverlay);                         // DOM ready
+      $(window).on('load', addOverlay);      // after assets
+      $(document).on('vc-full-width-row', addOverlay); // WPBakery event
+      $(document).on('vc_js', addOverlay);   // another VC init hook
+      setTimeout(addOverlay, 300);           // async belt-and-braces
+    })(jQuery);
+    JS;
+
+    // Append inline after jQuery so it always has $ available
+    wp_add_inline_script('jquery', $script);
+}
+add_action('wp_enqueue_scripts', 'ol_hero_gradient_overlay_script', 21);
 
   
 /* Classrooms link */
