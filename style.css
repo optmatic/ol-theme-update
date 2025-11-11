@@ -10,6 +10,37 @@ Template: dt-the7
 
 /* Global styles for Optimise Learning child theme */
 
+
+/* Global styles for Optimise Learning child theme */
+/* Works for: .vc_row.ol-hero, .ol-hero--compact, .ol-fullbleed */
+.vc_row.ol-hero { 
+  position: relative;
+  isolation: isolate;    /* keeps outside overlays below */
+  overflow: hidden;
+}
+
+/* Our overlay sits on top of the row bg, under content */
+.vc_row.ol-hero .ol-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(17,51,81,.4) 0%,
+    rgba(17,51,81,.4) 55%,
+    rgba(142,128,168,0) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+/* Lift everything else above the overlay */
+.vc_row.ol-hero > .wpb_column,
+.vc_row.ol-hero > .wpb_column > .vc_column-inner,
+.vc_row.ol-hero .ol-hero__content {
+  position: relative;
+  z-index: 3;
+  background: transparent !important; /* ensure no column bg hides overlay */
+}
+
 .vc_general.vc_btn3 {
   background: #ffc857 !important;
     color: #164870 !important;
