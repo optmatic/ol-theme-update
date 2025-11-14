@@ -8,11 +8,19 @@ License: This WordPress theme is comprised of two parts: (1) The PHP code and in
 Template: dt-the7
 */
 
-/* Global styles for Optimise Learning child theme */
+/* Online workshops */ 
+
+#online-workshops a:hover {
+  color: #ffc857 !important;
+}
 
 
 /* Global styles for Optimise Learning child theme */
-/* Works for: .vc_row.ol-hero, .ol-hero--compact, .ol-fullbleed */
+
+footer {
+    background-color: #113351 !important;
+}
+
 .vc_row.ol-hero { 
   position: relative;
   isolation: isolate;    /* keeps outside overlays below */
