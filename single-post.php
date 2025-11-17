@@ -74,12 +74,9 @@ function ol_inject_ids_and_toc($html){
   $words = str_word_count( wp_strip_all_tags( get_post_field( 'post_content', get_the_ID() ) ) );
   $mins  = max( 1, ceil( $words / 200 ) );
 
-  // Back link: use posts page if set, otherwise /blog/
-  $blog_url = get_permalink( get_option( 'page_for_posts' ) );
-  if ( empty( $blog_url ) ) {
-    $blog_url = home_url( '/blog/' );
-  }
 ?>
+
+
 
   <!-- ONE container + ONE grid for the whole page -->
   <div class="ol-container">
@@ -90,7 +87,7 @@ function ol_inject_ids_and_toc($html){
         <div class="ol-hero__grid">
           <div class="ol-hero__inner">
             <p class="ol-back">
-              <a href="<?php echo esc_url( $blog_url ); ?>">&larr; Back to the blog</a>
+              <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">&larr; Back to the blog</a>
             </p>
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <div class="entry-meta">
