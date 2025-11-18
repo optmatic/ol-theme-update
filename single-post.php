@@ -285,7 +285,7 @@ document.documentElement.style.scrollBehavior = 'smooth';
     toc._startY = sidebarTop;
 
     // Distance from viewport top when fixed
-    toc._fixTop = headerHeight + 24;
+    toc._fixTop = headerHeight + 24 + 32;
 
     // Stop just above the CTA (or article bottom) so TOC bottom
     // sits above the next section, with a small 24px buffer

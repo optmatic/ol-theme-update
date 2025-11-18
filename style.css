@@ -30,7 +30,6 @@ Template: dt-the7
 /* ===== TOC Sidebar ===== */
 .single-post .ol-sidebar{
   position: relative;
-  margin-top: 32px; /* pushes the whole TOC block down so it lines up with entry-content */
 }
 
 .single-post .ol-toc{
