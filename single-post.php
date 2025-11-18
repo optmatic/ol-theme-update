@@ -273,16 +273,23 @@ document.documentElement.style.scrollBehavior = 'smooth';
     const articleRect   = article.getBoundingClientRect();
     const tocHeight     = toc.offsetHeight;
 
-    // Absolute positions in the document
-    const sidebarTop    = sidebarRect.top + window.scrollY;
-    const articleTop    = articleRect.top + window.scrollY;
-    const articleBottom = articleRect.bottom + window.scrollY;
+    // Use CTA as the stop target (fallback: whole article if CTA missing)
+    const cta      = document.querySelector('.single-post .ol-cta');
+    const stopRect = cta ? cta.getBoundingClientRect() : articleRect;
 
-    // When we start fixing (when sidebar reaches viewport),
-    // and when we must stop (bottom of article minus TOC height)
+    // Absolute positions in the document
+    const sidebarTop = sidebarRect.top + window.scrollY;
+    const stopTop    = stopRect.top + window.scrollY;
+
+    // When we start fixing (when sidebar reaches viewport)
     toc._startY = sidebarTop;
-    toc._fixTop = headerHeight + 24;     // distance from viewport top when fixed
-    toc._stopY  = articleBottom - tocHeight - 24;
+
+    // Distance from viewport top when fixed
+    toc._fixTop = headerHeight + 24;
+
+    // Stop just above the CTA (or article bottom) so TOC bottom
+    // sits above the next section, with a small 24px buffer
+    toc._stopY = stopTop - tocHeight - 24;
 
     sidebarLeft = sidebarRect.left;
     toc._width  = sidebarRect.width;
@@ -315,9 +322,9 @@ document.documentElement.style.scrollBehavior = 'smooth';
       return;
     }
 
-    // Past the bottom of the article: park it at the bottom of the sidebar
+    // Past the stop point: park it so its bottom stays above the CTA
     const sidebarTop = sidebar.getBoundingClientRect().top + window.scrollY;
-    const offsetFromSidebarTop = (toc._stopY + toc._fixTop) - sidebarTop;
+    const offsetFromSidebarTop = toc._stopY - sidebarTop;
 
     toc.style.position = 'absolute';
     toc.style.top = offsetFromSidebarTop + 'px';
