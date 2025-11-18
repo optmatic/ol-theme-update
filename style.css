@@ -9,6 +9,10 @@ Template: dt-the7
 */
 
 
+.mobile-header-bar .mobile-branding img {
+  max-width: 250px !important;
+}
+
 
 
 
@@ -39,12 +43,30 @@ Template: dt-the7
   box-shadow: 0 3px 18px rgba(16,42,67,.05);
 }
 
+/* TOC media queries */ 
+
+
+@media (max-width:912px){
+  .single-post .ol-sidebar {
+   display: none !important;
+  }
+}
+
+
+@meida (max-width: 912px){
+.ol-sidebar {
+   display: none !important;
+  }
+}
+
+
 /* Mobile/tablet: just let it sit in the layout */
 @media (max-width: 1139px){
   .single-post .ol-toc{
     position: static;
   }
 }
+
 /* Online workshops */ 
 
 #online-workshops a:hover {
@@ -53,6 +75,22 @@ Template: dt-the7
 
 
 /* Global styles for Optimise Learning child theme */
+
+.mobile-header-bar {
+  background-color: #fff !important;
+}
+
+/* .lines-button {
+  background: #113351 !important;
+} */
+/* 
+header .menu-line {
+  background: #113351 !important;
+} */
+
+.menu-line {
+  height: 4px;
+}
 
 .btn-accent {
   border-radius: 6px !important;
@@ -538,4 +576,395 @@ color: #1b3951 !important
 .ol-hero--blog .ol-blog-grid{
   display: grid;
   gap: 22px;
+}
+
+/* Additional CSS */ 
+
+/* Global */ 
+
+button {
+	font-family: 'Quicksand';}
+
+h2 {
+	margin-bottom: 0px;
+}
+
+
+/* Blog stuff */
+
+.page-title {
+	display:block !important;
+}
+
+article .fancy-date {
+  display: none !important;
+}
+
+article .fancy-categories {
+	display: none !important;
+}
+
+
+
+a .vc-btn3
+button {
+background:#ffc857 !important;
+background-color:#ffc857 !important;
+
+}
+
+.btn-accent:hover{
+color: #113351;
+background-color: #feb820;
+background: #feb820;
+}
+
+.branding a img, .branding img {
+	max-width: 250px !important;
+}
+
+
+.header-elements-button-1.microwidget-btn-bg-on:before {
+    background: #ffc857 !important;
+   
+}
+
+.header-elements-button-1.microwidget-btn-hover-bg-on:after {
+/*     background: #df7400!important; */
+   
+}
+
+/* Groupworld embed CSS styles */
+
+/*
+.presenter_video { border: 5px solid #FEB820 !important }
+
+.non_presenter_video { border: 5px solid #2B6285 !important }
+*/
+
+/* Dictates height of classroom whiteboard */
+
+.wpb_wrapper iframe {
+	height: 1000px !important;
+}
+
+/* ===== Hero title helpers ===== */
+.ol-hero__title .ol-hero__line{
+  display: block;                 /* put each span on its own line */
+}
+
+.ol-hero__title--sub{
+  color: #eaf3ff;                 /* softer than pure white on dark hero */
+  opacity: .95;
+  letter-spacing: .2px;
+  margin-top: 2px;                /* tiny separation from the highlight line */
+}
+
+/* ===== Badge icon inside the pills ===== */
+.ol-badge__icon{
+  display: inline-block;
+  margin-right: .45rem;           /* gap between emoji/SVG and text */
+  font-size: 1.05em;              /* keep emoji/SVG visually balanced */
+  line-height: 1;
+  transform: translateY(1px);     /* optical align with text baseline */
+}
+
+/* Small screens: tighten hero title stack a touch */
+@media (max-width: 640px){
+  .ol-hero__title--sub{ opacity: .9; margin-top: 1px }
+  .ol-badge__icon{ margin-right: .4rem }
+}
+
+/* ===== Hero trust badge (hard cap image, inline pill) ===== */
+.ol-hero__content .trust-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(10,24,39,.55);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+  line-height:1;
+}
+
+.ol-hero__content .trust-badge img{
+  height:18px;           /* ← keeps the Google icon tiny */
+  width:auto;
+  display:block;
+  flex:0 0 auto;
+}
+
+.ol-hero__content .trust-badge .trust-stars{
+  color:#ffd24a;
+  font-size:14px;
+  letter-spacing:.12em;
+}
+
+.ol-hero__content .trust-badge strong{ font-weight:600; color:#fff }
+
+/* ===== Hero title helpers ===== */
+.ol-hero__title .ol-hero__line{ display:block }
+.ol-hero__title--sub{
+  color:#fff !important;
+  letter-spacing:.2px;
+  margin-top:2px;
+}
+
+/* ===== Badge icon inside feature pills ===== */
+.ol-badge__icon{
+  display:inline-block;
+  margin-right:.45rem;
+  font-size:1.05em;
+  line-height:1;
+  transform:translateY(1px);
+}
+
+/* Small screens: tiny tweaks */
+@media (max-width:640px){
+  .ol-hero__content .trust-badge{ padding:7px 12px; gap:5px }
+  .ol-hero__content .trust-badge img{ height:16px }
+  .ol-hero__title--sub{ margin-top:1px; opacity:.9 }
+}
+
+.ol-hero__title--highlight {
+	color: #ffc857;
+}
+
+/* ===== Hero stack – alignment + breathing room ===== */
+.ol-hero__content{
+  /* keep the text column readable and give it vertical padding */
+  max-width: 48rem;
+  padding-top: clamp(24px, 5vw, 48px);
+  padding-bottom: clamp(18px, 4vw, 36px);
+}
+
+/* trust badge: small top gap + clear space below before the headline */
+.ol-hero__content .trust-badge{
+  margin-top: .25rem;
+  margin-bottom: 1.1rem;
+}
+
+/* headline + subline spacing */
+.ol-hero__title{ 
+  line-height: 1.06;
+  margin: 0 0 .28em;
+}
+.ol-hero__title .ol-hero__line{ display:block }
+.ol-hero__title--sub{
+  color:#eaf3ff;
+  opacity:.95;
+  letter-spacing:.2px;
+  margin-top:2px;
+}
+
+/* lead paragraph spacing */
+.ol-hero__lead{
+  margin: .55rem 0 .95rem;
+}
+
+/* badges row spacing + tidy wrap */
+.ol-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem .6rem;
+  margin: 0 0 1.0rem;
+}
+.ol-badge__icon{
+  display:inline-block;
+  margin-right:.45rem;
+  font-size:1.05em;
+  line-height:1;
+  transform:translateY(1px);
+}
+
+/* CTA not glued to badges on tight screens */
+.ol-hero__content .btn-accent{ margin-top:.25rem }
+
+/* Small screens: keep everything snug but readable */
+@media (max-width:640px){
+  .ol-hero__content{ padding-top: 22px; padding-bottom: 18px; }
+  .ol-hero__content .trust-badge{ margin-bottom: .9rem }
+  .ol-hero__title--sub{ margin-top:1px; opacity:.9 }
+  .ol-badge__icon{ margin-right:.4rem }
+}
+
+	@media screen and (min-width: 993px) {
+		
+		.ol-hero {
+			padding-left: 50px; 
+			padding-right: 50px;
+		}
+
+}
+
+/* ===== Hero text colour fixes ===== */
+.ol-hero__title {
+  color: #ffffff; /* main headline clean white */
+}
+
+.ol-hero__title--highlight {
+  color: #ffc857; /* Optimise yellow highlight */
+}
+
+.ol-hero__lead {
+  color: #eaf3ff; /* softer white for subtext */
+}
+
+/* ===== Feature pills ===== */
+.ol-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
+  margin-top: .75rem;
+}
+
+.ol-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .35rem .75rem;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15); /* translucent pill */
+  color: #ffffff;                     /* pill text always white */
+  backdrop-filter: blur(6px);
+}
+
+.ol-badge__icon {
+  margin-right: .45rem;
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+/* ===== Call-to-action button ===== */
+.ol-hero__content .btn-accent {
+  background: #ffc857;
+  color: #164870;
+  padding: .65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s ease;
+}
+
+.ol-hero__content .btn-accent:hover {
+  background: #feb820;
+}
+
+
+.btn-accent {
+  background: #ffc857;
+  color: #164870;
+  padding: .65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s ease;
+}
+
+.testimonial-position .text-secondary {
+	color: #1375ad !important;
+}
+
+.hero-link {
+	border-radius: 6px !important;
+	font-size: 14px; 
+}
+
+.hero-badge-link:hover {
+	color: #ffc857 !important;
+}
+
+.gform_button {
+	color: #113351 !important;
+}
+
+.gform_button:hover {
+	background: #feb820 !important;
+}
+
+/* .ol-badge.hero-link > a {
+	text-decoration:none !important
+} */
+
+.ol-badge.hero-link a {
+	  color: #ffca4d; /* lighter, brighter orange */
+
+  text-shadow: 0 1px 2px 	rgba(0,0,0,0.6);
+	text-decoration: none !important;
+}
+
+.ol-badge.hero-link a:hover {
+	  color: #fff; /* lighter, brighter orange */
+
+  text-shadow: 0 1px 2px 	rgba(0,0,0,0.6);
+	text-decoration: none !important;
+}
+
+
+/* === Single-post fixes to play nice with your globals === */
+
+/* Don’t show theme page title on posts */
+.single-post .page-title { display: none !important; }
+
+/* Bring back heading rhythm inside posts (overrides global h2 rule) */
+.single-post .entry-content h2 { 
+  margin: 2.1em 0 .6em !important; 
+}
+.single-post .entry-content h3 { 
+  margin: 1.6em 0 .5em !important; 
+}
+
+/* Let the grid control width (drop old 760/900px caps) */
+.single-post .ol-hero__inner,
+.single-post .ol-entry .entry-content,
+.single-post .ol-author,
+.single-post .ol-related {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Content column should fill its grid track (not re-center itself) */
+.single-post .ol-entry .entry-content { margin: 0 !important; }
+
+/* Keep the wide container + grid */
+.single-post .ol-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.single-post .ol-grid { 
+  display: grid; 
+  grid-template-columns: minmax(0, 1fr) 320px; 
+  gap: 48px; 
+}
+
+/* Optional: widen hero text a touch but keep readable */
+.single-post .ol-hero__inner { max-width: 1000px; margin: 0 auto; padding: 8px 24px; }
+
+/* Responsive */
+@media (max-width:1024px){
+  .single-post .ol-grid { grid-template-columns: 1fr; }
+  .single-post .ol-sidebar { order: -1; margin-bottom: 20px; }
+}
+@media (max-width:782px){
+  .single-post .ol-hero__media img { height: 300px; }
+  .single-post .ol-related__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Site-wide: no theme sidebar on single blog posts */
+.single-post .sidebar,
+.single-post .sidebar-divider-vertical { display: none !important; }
+.single-post .wf-container-main { display:block !important; grid-template-columns:none !important; }
+.single-post .wf-container-main .content { width:auto !important; max-width:100% !important; grid-column:1 / -1 !important; }
+
+
+
+/* Force-hide TOC + sidebar on viewports 912px and below */
+@media (max-width: 912px) {
+  body.single-post aside.ol-sidebar,
+  body.single-post .ol-toc {
+    display: none !important;
+  }
 }
